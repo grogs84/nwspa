@@ -81,3 +81,23 @@ print q
 # single element common to (1) and (2). Use the demonstrated array methods.
 # Compare your code and results to the answer sheet.
 
+A = array([[5,10,8], [11,14,15]])
+print 'A = \n{}'.format(A)
+print '\n'
+
+B = array([[22,25,38],[31,34,35]])
+print 'B = \n{}'.format(B)
+print '\n'
+
+C = B-A
+print 'B-A = C = \n{}'.format(C)
+print '\n'
+
+print 'The second row of C = \n {}'.format(C[1])
+print'\n'
+
+print 'The third column of C = \n {}'.format(C[:,2])
+print '\n'
+
+print 'The single element common to both is the intersection of row2 and column3: the element 20\n'
+print 'row2, column3: {}'.format(C[[1],[2]])

@@ -85,6 +85,23 @@ print IA
 # Part 2. Refer to Lial Section 2.5 page 96 problem #1.  Write the code
 # which solves the problem.  Use linalg.solve(,).
 
+print '\n'
 
+A = array([[1,0,1],[2,-2,-1],[3,0,0]])
 
+print 'A = \n{}'.format(A)
+IA = inv(A)
+print '\n'
 
+print 'A inverse = \n{}'.format(IA)
+print '\n'
+
+print 'A x IA = \n{}'.format(int_(A.dot(IA)))
+print '\n'
+
+###### problem 1 in Section 2.5 #########
+
+A = array([[2,1],[5,3]])
+B = array([[3,-1],[-5,2]])
+
+print inv(A)

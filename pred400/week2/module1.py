@@ -18,79 +18,79 @@ from matplotlib.pyplot import *
 import numpy 
 from numpy import linspace
 
-# # The example shows how to plot a system of consistent equations.
-# # This is Example 1 Section 2.1 of Lial.  The function linspace divides the
-# # interval [-1,15] into 100 points. For each value in x, y1 and y2 will have
-# # a corresponding value based on the calculations shown below.
+# The example shows how to plot a system of consistent equations.
+# This is Example 1 Section 2.1 of Lial.  The function linspace divides the
+# interval [-1,15] into 100 points. For each value in x, y1 and y2 will have
+# a corresponding value based on the calculations shown below.
 
-# x= linspace(-1,15,100)
-# y1= 115.0/10.0 - (3.0/10.0)*x
-# y2= 95.0/4.0 - (11.0/4.0)*x
+x= linspace(-1,15,100)
+y1= 115.0/10.0 - (3.0/10.0)*x
+y2= 95.0/4.0 - (11.0/4.0)*x
 
-# # Plots can be built up in layers.  What follows shows how to plot individual
-# # colored lines.  plt.legend will associate the indicated equations to the 
-# # preceding plt.plot statements.  The order of appearance must be the same. 
-# # loc=3 places the legend in the lower left corner.
+# Plots can be built up in layers.  What follows shows how to plot individual
+# colored lines.  plt.legend will associate the indicated equations to the 
+# preceding plt.plot statements.  The order of appearance must be the same. 
+# loc=3 places the legend in the lower left corner.
 
-# xlabel('x-axis')
-# ylabel('y-axis')
-# plot (x, y1, 'r')
-# plot (x, y2, 'b')
-# legend (('3x+10y=115','11x+4y=95'),loc=3)
-# title ('Solving a System of Equations with a Unique Solution')
-# show()
+xlabel('x-axis')
+ylabel('y-axis')
+plot (x, y1, 'r')
+plot (x, y2, 'b')
+legend (('3x+10y=115','11x+4y=95'),loc=3)
+title ('Solving a System of Equations with a Unique Solution')
+show()
 
-# # This example shows a plot of a system of inconsistent equations. It is 
-# # Example 2 Section 2.1 of Lial.  It is not necessary to always specify colors
-# # for line plots particularly if no legend is involved.  The computer will
-# # select colors for you.  Color codes may be found by entering plot? in the 
-# # interpreter.  Check the answer sheet Session 1 Python Module 2.
+# This example shows a plot of a system of inconsistent equations. It is 
+# Example 2 Section 2.1 of Lial.  It is not necessary to always specify colors
+# for line plots particularly if no legend is involved.  The computer will
+# select colors for you.  Color codes may be found by entering plot? in the 
+# interpreter.  Check the answer sheet Session 1 Python Module 2.
 
-# # The statement figure() separates the subsequent plot from the preceeding
-# # plot.  Without it the two plots will be superimposed on each other.  Take
-# # note of the order of statements.  First, the variables being plotted are 
-# # defined. The plot statements begin with figure() and end with show().
-# # If a legend is used, the order of appearance of the plot statements must 
-# # correspond to the terms used in the plt.legend statement.
+# The statement figure() separates the subsequent plot from the preceeding
+# plot.  Without it the two plots will be superimposed on each other.  Take
+# note of the order of statements.  First, the variables being plotted are 
+# defined. The plot statements begin with figure() and end with show().
+# If a legend is used, the order of appearance of the plot statements must 
+# correspond to the terms used in the plt.legend statement.
 
-# x= linspace(0,6,100)
-# y1= 6.0/(-3.0)+(2.0/3.0)*x
-# y2= 8.0/6.0 +(4.0/6.0)*x
-# figure()
-# plot (x, y1)
-# plot (x, y2)
-# xlabel('x-axis')
-# ylabel('y-axis')
-# title ('Showing an Inconsistent System of Equations')
-# show()
+x= linspace(0,6,100)
+y1= 6.0/(-3.0)+(2.0/3.0)*x
+y2= 8.0/6.0 +(4.0/6.0)*x
+figure()
+plot (x, y1)
+plot (x, y2)
+xlabel('x-axis')
+ylabel('y-axis')
+title ('Showing an Inconsistent System of Equations')
+show()
 
-# # This next example will show how to plot and solve a consistent system 
-# # of non-linear equations using Python.
+# This next example will show how to plot and solve a consistent system 
+# of non-linear equations using Python.
 
-# x= linspace(0,2,100)
-# y1= 2.0 - x**2
-# y2= x**2
-# figure()
-# plot (x, y1)
-# plot (x, y2)
-# xlabel('x-axis')
-# ylabel('y-axis')
-# title ('Showing a Consistent System of Non-linear Equations')
-# show()
+x= linspace(0,2,100)
+y1= 2.0 - x**2
+y2= x**2
+figure()
+plot (x, y1)
+plot (x, y2)
+xlabel('x-axis')
+ylabel('y-axis')
+title ('Showing a Consistent System of Non-linear Equations')
+show()
 
-# # If loc='best' is used, Python will pick the best location for the legend.
+# If loc='best' is used, Python will pick the best location for the legend.
 
-# x=linspace(0,100,100)
-# y=x*x+x
-# y1=y+1000.0
-# figure()
-# xlabel('x-axis')
-# ylabel('Y-axis')
-# title ('Plot Showing Inconsistent Nonlinear Equations')
-# plot(x,y, c='b')
-# plot(x,y1,c='r')
-# legend(('y=x**2+x','y=x**2+x+1000'),loc='best')
-# show()
+x=linspace(0,100,100)
+y=x*x+x
+y1=y+1000.0
+figure()
+xlabel('x-axis')
+ylabel('Y-axis')
+title ('Plot Showing Inconsistent Nonlinear Equations')
+plot(x,y, c='b')
+plot(x,y1,c='r')
+legend(('y=x**2+x','y=x**2+x+1000'),loc='best')
+show()
 
 # # Exercise:  Refer to Lial Section 2.1 Problem 46 on page 53.  Solve for a 
 # # and b using the Echlon Method.  Plot the resulting quadratic function.
@@ -101,7 +101,7 @@ from numpy import linspace
 #################################################
 # y = ax^2 + b
 
-y1 = 67.1
+y1 = 61.7
 x1 = 25
 x12 = x1*x1
 
@@ -110,29 +110,44 @@ x2 = 35
 x22 = x2*x2
 
 A = np.array([[x12, x1], [x22, x2]])
-print A
+# print A
 
 b = np.array([y1, y2])
 # print b
 
 x = np.linalg.solve(A,b)
-print x
-bhat = A.dot(x)
 
-print bhat == b
+a, b = x[0], x[1]
+
+def f(x):
+	return a*x**2 +b*x
 
 #####################################
 # solve using Echlon method manually
 
-b.shape = (2,1)
-Ab = np.hstack([A,b])
+# b.shape = (2,1)
+# Ab = np.hstack([A,b])
 
-c = 1.0/Ab[0,0]
+# c = 1.0/Ab[0,0]
 
-Ab[0] = Ab[0]*c
-print Ab
+# Ab[0] = Ab[0]*c
+# print Ab
 
-c = Ab[1,0]
+# c = Ab[1,0]
 
-Ab[1] += (-1* (Ab[0]*c))
-print Ab
+# Ab[1] += (-1* (Ab[0]*c))
+# print Ab
+
+########################################
+
+figure()
+x=linspace(0,100,100)
+# y=0.056057*x*x+1.06657*x
+# y55=0.056057*(55)**2+1.06657*(55)
+y55 = f(55)
+xlabel('Speed in mph')
+ylabel('Stopping Distance in ft')
+title ('Plot of Stopping Distance versus Speed')
+scatter(55,y55,c='y',s=40)
+plot(x,f(x))
+show()
