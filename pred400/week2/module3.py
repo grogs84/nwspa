@@ -105,3 +105,13 @@ A = array([[2,1],[5,3]])
 B = array([[3,-1],[-5,2]])
 
 print inv(A)
+print '\n'
+
+
+M= [[2, 4, 2], [2, 1, 2], [2, 1, 3]]
+M= matrix(M)
+O= [72,48,60]
+O= transpose(matrix(O))
+result= linalg.solve(M,O)
+print ('\nDaily Orders\n')
+print int_(result)
