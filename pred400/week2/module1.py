@@ -92,16 +92,22 @@ plot(x,y1,c='r')
 legend(('y=x**2+x','y=x**2+x+1000'),loc='best')
 show()
 
+<<<<<<< HEAD
 # Exercise:  Refer to Lial Section 2.1 Problem 46 on page 53.  Solve for a 
 # and b using the Echlon Method.  Plot the resulting quadratic function.
 # Compare the code and plot with the answer sheet. 
+=======
+# # Exercise:  Refer to Lial Section 2.1 Problem 46 on page 53.  Solve for a 
+# # and b using the Echlon Method.  Plot the resulting quadratic function.
+# # Compare the code and plot with the answer sheet. 
+>>>>>>> f17a81b13cda70c8bfe79e1b69adf9fa295de6b0
 
 
 #################################################
 #################################################
 # y = ax^2 + b
 
-y1 = 67.1
+y1 = 61.7
 x1 = 25
 x12 = x1*x1
 
@@ -110,29 +116,51 @@ x2 = 35
 x22 = x2*x2
 
 A = np.array([[x12, x1], [x22, x2]])
-print A
+# print A
 
 b = np.array([y1, y2])
 # print b
 
 x = np.linalg.solve(A,b)
+<<<<<<< HEAD
 print x
 b1 = A.dot(x)
 
 print b1 == b
+=======
+
+a, b = x[0], x[1]
+
+def f(x):
+	return a*x**2 +b*x
+>>>>>>> f17a81b13cda70c8bfe79e1b69adf9fa295de6b0
 
 #####################################
 # solve using Echlon method manually
 
-b.shape = (2,1)
-Ab = np.hstack([A,b])
+# b.shape = (2,1)
+# Ab = np.hstack([A,b])
 
-c = 1.0/Ab[0,0]
+# c = 1.0/Ab[0,0]
 
-Ab[0] = Ab[0]*c
-print Ab
+# Ab[0] = Ab[0]*c
+# print Ab
 
-c = Ab[1,0]
+# c = Ab[1,0]
 
-Ab[1] += (-1* (Ab[0]*c))
-print Ab
+# Ab[1] += (-1* (Ab[0]*c))
+# print Ab
+
+########################################
+
+figure()
+x=linspace(0,100,100)
+# y=0.056057*x*x+1.06657*x
+# y55=0.056057*(55)**2+1.06657*(55)
+y55 = f(55)
+xlabel('Speed in mph')
+ylabel('Stopping Distance in ft')
+title ('Plot of Stopping Distance versus Speed')
+scatter(55,y55,c='y',s=40)
+plot(x,f(x))
+show()
