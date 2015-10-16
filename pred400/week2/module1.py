@@ -92,15 +92,15 @@ plot(x,y1,c='r')
 legend(('y=x**2+x','y=x**2+x+1000'),loc='best')
 show()
 
-<<<<<<< HEAD
+
 # Exercise:  Refer to Lial Section 2.1 Problem 46 on page 53.  Solve for a 
 # and b using the Echlon Method.  Plot the resulting quadratic function.
 # Compare the code and plot with the answer sheet. 
-=======
+
 # # Exercise:  Refer to Lial Section 2.1 Problem 46 on page 53.  Solve for a 
 # # and b using the Echlon Method.  Plot the resulting quadratic function.
 # # Compare the code and plot with the answer sheet. 
->>>>>>> f17a81b13cda70c8bfe79e1b69adf9fa295de6b0
+
 
 
 #################################################

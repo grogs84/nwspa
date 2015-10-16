@@ -131,6 +131,7 @@ def remove_at_exit(path):
 
 
 
+
 class Graph:
     def __init__(self):
         self.points = {}
@@ -141,10 +142,10 @@ class Graph:
             name = "pt" + str(len(self.points))
         self.points[name] = pt
 
-    def add_line(self, pts, name=""):
+    def add_line(self, pts, color='g', name=""):
         if name == "":
             name = "line" + str(len(self.lines))
-        self.lines[name] = pts
+        self.lines[name] = (pts,color)
 
     def show(self, browser=None):
         scalar = 200./10
@@ -165,11 +166,12 @@ class Graph:
                 ,'<line x1="210" y1="0" x2="210" y2="420"'
                 ,'style="stroke:rgb(0,0,0);stroke-width:2"/>\n'])
             for line in self.lines:
-                pt1, pt2 = self.lines[line]
+                pt1, pt2 = self.lines[line][0]
+                c = self.lines[line][1]
                 x1, y1 = pt1
                 x2, y2 = pt2
-                h.writelines(['<line x1="%d" y1="%d" x2="%d" y2="%d" style="stroke:rgb(0,0,0);stroke-width:2"/>\n'
-                              % (origin+x1*scalar,origin-y1*scalar,origin+x2*scalar,origin-y2*scalar)])
+                h.writelines(['<line x1="%d" y1="%d" x2="%d" y2="%d" style="stroke:%s";stroke-width:2"/>\n'
+                              % (origin+x1*scalar,origin-y1*scalar,origin+x2*scalar,origin-y2*scalar,c)])
             for pts in self.points:
                 pt = self.points[pts]
                 x,y = pt
@@ -179,6 +181,30 @@ class Graph:
         if browser is None:
             browser = _browser
         webbrowser.get(browser).open('file://%s' % hpath)
+
+
+
+def parse_constraint(constraint):
+    nums = list('0123456789')
+    # alpha = list('abcdefghijklmnopqrstuvwxyz')
+    alpha = ['x', 'y']
+    ops = ['+','-', '*', '/']
+    comp = ['<','<=','=','>','>=']
+    first_coef = False
+    first_var = False
+    _xCoef = None
+    _yCoef = None
+    _x = None
+    _y = None
+
+    for s in constraint:
+        if s in nums:
+            if not first_coef:
+                _xCoef += s
+            else:
+                _yCoef += s
+        if s in alpha:
+            
 
 
 
