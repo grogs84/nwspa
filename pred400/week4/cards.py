@@ -49,9 +49,12 @@ class Deck(object):
 	def count_selected(self):
 		return len(self.selected_cards)
 
-	def prop_higher(self, card):
+	def prob_higher(self, card):
 		count = sum([self.card_rank(card) < self.card_rank(c) for c in self.cards])
 		return float(count)/self.count()
+
+	def prob_lower_or_equal(self,card):
+		return 1.0 - self.prob_higher(card)
 
 	def card_rank(self, card):
 		return self.values.index(card.value)
