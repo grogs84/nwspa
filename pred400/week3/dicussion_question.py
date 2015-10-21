@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 # min 3x + 4y
 # st
 #  x + 3y >= 6
@@ -33,9 +34,6 @@ for k in range(0,len(x)):
 #         y6[k]= d2[k]
 #     if d2[k] > d1[k]:
 #         y6[k]= d1[k]
-
-
-
 
 
 y5 = (5.4/2.0) - 3.0*x/2.0
