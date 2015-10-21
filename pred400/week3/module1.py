@@ -1,5 +1,6 @@
 # Math for Modelers Session #3 Module #1
 
+
 # Reading assignment:  Investigate the Canopy Doc Manager.  Review the portion 
 # dealing with Matplolib.  Review the gallery and the code used.
 
