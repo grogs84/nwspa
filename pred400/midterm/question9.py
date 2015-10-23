@@ -6,6 +6,10 @@ pw = .93
 pb = .32
 print "p(w) = {}".format(pw)
 print "p(b) = {}".format(pb)
+
+# probability of using ATM to withdrawl or check balance
+pw_or_pb = .96
+print "P(w or b) = {}".format(pw_or_pb)
 print '\n'
 
 # probability of using ATM and not withdrawling
@@ -15,8 +19,7 @@ npb = 1-pb
 print "p(w') = {}".format(npw)
 print "p(b') = {}".format(npb)
 print '\n'
-# probability of using ATM to withdrawl or check balance
-pw_or_pb = .96
+
 
 # probability of checking balance and withdrawling
 # p(A & B) = P(A) + P(B) - P(A or B)
