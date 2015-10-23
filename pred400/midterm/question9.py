@@ -4,6 +4,9 @@ print '\n'
 # probability of withdrawl and check balance
 pw = .93
 pb = .32
+
+print 'w = make a withdraw'
+print 'b = check balance'
 print "p(w) = {}".format(pw)
 print "p(b) = {}".format(pb)
 
@@ -49,4 +52,5 @@ print "P(A|B) = P(A)*P(B|A)/ P(A)*(B|A) + P(A')*P(B|A')"
 print "P(w|b) = P(w)*P(b|w)/ P(w)*P(b|w)+ P(w')*P(b|w')"
 print "P(w|b) = {}*{}/ ({}*{})+({}*{})".format(pw,pb_given_w,pw,pb_given_w,npw,pb_given_nw)
 pw_given_b = float(pw*pb_given_nw)/((pw*pb_given_nw)+(npw*pb_given_nw))
-print "P(w|b) = {}".format(pw_given_b)
+
+print "The probability of making a with draw given a balance check is:\nP(w|b) = {}".format(pw_given_b)

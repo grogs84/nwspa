@@ -11,8 +11,13 @@ no_seat_belt_injured = .41
 no_seat_belt_killed  = .52
 no_seat_belt_unharmed = .07
 
-prob_of_selecting_unharmed_person = seat_belt * seat_belt_unharmed + no_seat_belt*no_seat_belt_unharmed
+pct_unharmed_w_sb = seat_belt*seat_belt_unharmed
+pct_unharmed_wo_sb = no_seat_belt*no_seat_belt_unharmed
 
-prob_unharmed_not_wearing_seat_belt = prob_of_selecting_unharmed_person/no_seat_belt
+prob_unharmed = pct_unharmed_wo_sb+pct_unharmed_w_sb
+print 'The probability of selecting an unharmed person from a fatal crash:'
+print prob_unharmed
 
-print prob_unharmed_not_wearing_seat_belt
+prob_unharmed_wo_sb = pct_unharmed_wo_sb/prob_unharmed
+print 'The probability that a randomly selected person who was unharmed in a fatal crash\nwas not wearing a seat belt:'
+print prob_unharmed_wo_sb
