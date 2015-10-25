@@ -1,0 +1,39 @@
+
+
+import numpy as np
+
+from math import factorial as f
+
+def m_choose_n(m,n):
+	k = m-n
+	return float(f(m))/(f(k)*f(n))
+
+def bernoulli_trial(p,n,k):
+	m = n-k
+	q = 1.0 - p
+	return m_choose_n(n,k)*(p**k)*(q**m)
+
+
+prob_of_failure = .0504
+years = 107
+wins = 0
+
+prob_of_zero_wins = bernoulli_trial(prob_of_failure, years, wins)
+print prob_of_zero_wins
+
+#### find expected number of wins ###
+
+# probability of winninng 0 - 107 world series
+probs = [bernoulli_trial(.0504,107,i) for i in range(years)]
+
+# index of world series wins 0-107
+total_wins = [i for i in range(years)]
+
+# convert to numpy arrays to take advantage of element wise multiplication
+probs = np.array(probs)
+total_wins = np.array(total_wins)
+
+probabilities = probs*total_wins
+
+expected_wins = sum(probabilities)
+print expected_wins
