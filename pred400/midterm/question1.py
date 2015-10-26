@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 
 x = np.arange(0,60,1)
 
-
 marginal_cost = 3.5
 fixed_cost = 90
 # total_cost = marginal_cost*x + fixed_cost

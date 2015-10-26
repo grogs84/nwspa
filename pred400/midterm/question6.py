@@ -30,4 +30,5 @@ plt.fill(xx,yy, color='grey',alpha=0.5)
 plt.legend(['2*x + y >= 20','x + y >= 15'],loc='best')
 
 
+
 plt.show()

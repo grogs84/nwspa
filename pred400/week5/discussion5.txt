@@ -1,4 +1,39 @@
+My in laws grew up in Chicago and have been Cubs fans their whole lives. This past month seemed like the Cubs might actually have a chance to break the longest drought of winning the World Series in the Majors, however they lost in the NCLCS and will have to wait to try again next year. The Cubs haven't won a title since 1908.
 
+This article, entitled 'Why A Curse Need Not Be Invoked To Explain The Cubs' Woes' tries to ease Cubs fans pains by showing it doesn't take curse to have the type of luck the Cubs have faced, just some pretty unfavorable odds.
+
+http://sabr.org/research/why-curse-need-not-be-invoked-explain-cubs-woes
+
+The first part of the article goes about explaining a naive way of calculating the Cubs chances of not winning a World Series. This is the part of the article I will focus on. The second half of the article uses more team and year specific stats like a Dynasty rating that gives a weighted averaged on the probabilities of success.
+
+The first part describes a naive way of calculating the probability of not winning a World Series would be to use the product rule and multiply the probability of not winning a world series each year by each other for the number of years of years of not winning. The author gives the number of teams playing each year:
+
+1909-1960 = 16
+1961      = 18
+1962-1968 = 20
+1969-1976 = 22
+1977-1992 = 24
+1993      = 28
+1995-1997 = 30
+1998-2015 = 30
+
+If you give each team an equal probability of not winning each year you can derive the average probability of winning by multiplying the number of years in with x amount of teams by (x-1)x
+
+eg between 1909 and 1960 each team had 15/16 chance of not winning the world series. By using the product rule (Prob(A & B) = P(A) * P(B) where A is not winning in year1 and B is not winning in year two) you can carry out the multiplications and find that there is only a .004103 chance that Cubs would not have won a World Series. I was able to replicate this in my excel file. 
+
+Another approach I wanted to try was using the binomial probability to see what the chance of not winning are.
+
+The Binomial probability is defined in Lial et al on page 382 as:
+P(x success in n trials) = C(n,x) * p^x * (1-p)^n-x 
+where p is the probability of success.
+
+I wrote a python script to evaluate Cubs chances using the binomial probability.
+I derived p(.0504) by taking the average probability of winning the World Series each year (given and equal chance of winning each year).
+
+I also used the binomial probability to calculate the expected number of World Series wins.
+
+The output says the probability of no world series is only .00395
+The expected number of World Series wins is 5.39
 
 import numpy as np
 
@@ -14,17 +49,17 @@ def bernoulli_trial(p,n,k):
 	return m_choose_n(n,k)*(p**k)*(q**m)
 
 
-prob_of_failure = .0504
+prob_of_winning = .0504
 years = 107
 wins = 0
 
-prob_of_zero_wins = bernoulli_trial(prob_of_failure, years, wins)
-print prob_of_zero_wins
+prob_of_zero_wins = bernoulli_trial(prob_of_winning, years, wins)
+print 'The probability of 0 world series winds for the cubs: {}'.format(prob_of_zero_wins)
 
 #### find expected number of wins ###
 
 # probability of winninng 0 - 107 world series
-probs = [bernoulli_trial(.0504,107,i) for i in range(years)]
+probs = [bernoulli_trial(prob_of_winning,years,i) for i in range(years)]
 
 # index of world series wins 0-107
 total_wins = [i for i in range(years)]
@@ -36,4 +71,4 @@ total_wins = np.array(total_wins)
 probabilities = probs*total_wins
 
 expected_wins = sum(probabilities)
-print expected_wins
+print 'The expected world series wins in 107 years is: {}'.format(expected_wins)
