@@ -1,0 +1,17 @@
+How does the approach to maximization and minimization problems in chapters 13 and 14 compare to what you learned in Session 3 (Chapter 4 of the text)? Can you think of any problems that could be solved using both methods?
+
+The main differnece in the optimization problems from chapters 13 & 14 and chapter 4 is that the former chapters deal with linear problems while the latter are dealing with non linear problems. Other other main difference is the problems in linear optimization almost always have several variables, while the problems from chapters 13 & 14 were polynomial problems dealing with only one variable. Furthermore, the linear problems were constrained optimization prolems, while the non linear functions did not have any constraints.
+
+There is a pretty big differce in the approach given in the book to solve these two types of problems. An algorithm (the simplex method) is used to solve constrained linear problems and I would consider a numerical approcah, while the non linear problems use an analytical solution (using calculus). While not entirely accurate I descibe a numerical solution as a process of starting with a solution and repeately updating your solution until you reach some sort of stopping criteria. 
+
+For example in the simplex method you start with an initial basic feasible solution and you continue to move in the direction that will increase the value of your objective function the greatest. You continue to do this until you cannot move in any direction and increase the objective function (when all of the non basic variables have a positive value)
+
+On the other had an analytic solution is something that can be show to be true using some sort of proof. For a proof for the power rule is given on page 607 of Lial et all.We can use that to find the minium for the function f(x) = x^2 +2x.
+
+Using the power rule we find f'(x) = 2x + 2 and f''(x) = 2. By setting f'(x) = 0 we find a critical number for this function is -1. Using rules for second derivatives given on page 689 of Lial et all, know that if the 2nd derivative is positive we are at a realative minimum. So f(x) is at a realative minimum at x=-1.
+
+While we haven't covered this material so far linear regression is a good example of a problem that has an anlytical solution as well as many numerical solutions.
+
+The analytical solution can be shown as:
+
+
